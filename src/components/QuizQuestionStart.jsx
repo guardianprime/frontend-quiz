@@ -4,68 +4,59 @@ import { useEffect, useState } from "react";
 function QuizQuestionStart({ questionTopic }) {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [questions, setQuestions] = useState({});
-  const [questionSubmit, setQuestionSubmit] = useState(false);
+  const [questionsArray, setQuestionsArray] = useState([]);
 
   function handleSubmit() {
-    console.log("Sumbmitted!!");
-    setQuestionSubmit(true);
+    console.log("Submitted!!");
   }
 
   useEffect(function () {
-    const controller = new AbortController();
     async function getQuestions() {
       try {
         setIsLoading(true);
         setError("");
-        const res = await fetch(`http://localhost:9000/quizzes`, {
-          signal: controller.signal
-        });
+        const res = await fetch(`http://localhost:9000/quizzes`);
 
         if (!res.ok) throw new Error("couldn't fetch the questions");
         const data = await res.json();
-        console.log(data);
-        setQuestions(data)
+        const topicObject = { HTML: 0, CSS: 1, Javascript: 2, Accessibility: 3 };
+        const clean = data[topicObject[questionTopic]]; // this is the array of questions for the topic
+        console.log("finally!!!", clean);
+        setQuestionsArray(clean)
       } catch (err) {
         setError(err.message);
-      }
-      finally {
+      } finally {
         setIsLoading(false);
       }
     }
 
     getQuestions();
-    return () => {
-      controller.abort();
-    }
-  }, [questionTopic]);
 
-  questions.map(())
+  }, [questionTopic]);
 
   return (
     isLoading ? <div>loading spanner</div> : error ? <div>{error}</div> :
       (<div>
-        <h2>Question number of 10</h2>
+        <span>please work</span>
+        <div>
+          <span>{questionTopic}</span>
+        </div>
+        <h2>Question 1 of 10</h2>
+        <p>
+          {questionsArray && questionsArray.questions && questionsArray.questions.length > 0 && questionsArray.questions.at(0).question
+            ? questionsArray.questions.at(0).question
+            : "No questions available"}
+        </p>
         <ul>
-          <li>
-            <span>A</span>
-            <p></p>
-          </li>
-          <li>
-            <span>B</span>
-            <p></p>
-          </li>
-          <li>
-            <span>C</span>
-            <p></p>
-          </li>
-          <li>
-            <span>D</span>
-            <p></p>
-          </li>
+          {
+            questionsArray && questionsArray.questions && questionsArray.questions.length > 0 && questionsArray.questions[0].options
+              ? questionsArray.questions[0].options.map((option) => {
+                return <li key={option}>{option}</li>;
+              })
+              : <div>No questions options available</div>
+          }
         </ul>
-        <button onClick={handleSubmit}>Submit</button>
-        {questionSubmit && <button>answer</button>}
+        <button onClick={handleSubmit}>Submit Answer</button>
       </div>)
   );
 }

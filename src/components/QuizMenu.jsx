@@ -13,20 +13,20 @@ function QuizMenu({ setTopic }) {
       <p>Pick a subject to get started.</p>
       <ul>
         <li
-          onClick={() => handleTopic("html")}
+          onClick={() => handleTopic("HTML")}
         >
           HTML
         </li>
-        <li onClick={() => handleTopic("css")}>
+        <li onClick={() => handleTopic("CSS")}>
           CSS
         </li>
         <li
-          onClick={() => handleTopic("javascript")}
+          onClick={() => handleTopic("Javascript")}
         >
           JavaScript
         </li>
         <li
-          onClick={() => handleTopic("accessibility")}
+          onClick={() => handleTopic("Accessibility")}
         >
           Accessibility
         </li>
