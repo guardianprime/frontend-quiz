@@ -7,8 +7,8 @@ function App() {
   const [topic, setTopic] = useState("");
   return (
     <>
-      <QuizMenu  setTopic={setTopic} />
-      {topic && <QuizQuestionStart questionTopic={topic}/>}
+      {!topic && < QuizMenu setTopic={setTopic} />}
+      {topic && < QuizQuestionStart questionTopic={topic} />}
     </>
   );
 }

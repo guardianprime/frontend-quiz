@@ -1,41 +1,37 @@
 /* eslint-disable react/prop-types */
 
-function QuizMenu({setTopic }) {
+function QuizMenu({ setTopic }) {
+
+  function handleTopic(topic) {
+    console.log(topic);
+    setTopic(topic);
+  }
+
   return (
     <div>
       <h1>Welcome to the Frontend Quiz!</h1>
       <p>Pick a subject to get started.</p>
       <ul>
         <li
-          onClick={() => {
-            setTopic("html");
-          }}
+          onClick={() => handleTopic("html")}
         >
           HTML
         </li>
-        <li
-          onClick={() => {
-            setTopic("css");
-          }}
-        >
+        <li onClick={() => handleTopic("css")}>
           CSS
         </li>
         <li
-          onClick={() => {
-            setTopic("javascript");
-          }}
+          onClick={() => handleTopic("javascript")}
         >
           JavaScript
         </li>
         <li
-          onClick={() => {
-            setTopic("accessibility");
-          }}
+          onClick={() => handleTopic("accessibility")}
         >
           Accessibility
         </li>
       </ul>
-    </div>
+    </div >
   );
 }
 
