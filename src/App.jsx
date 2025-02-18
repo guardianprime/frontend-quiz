@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       {!topic && <QuizMenu setTopic={setTopic} />}
-      {topic && next < 9 ? <QuizQuestionStart questionTopic={topic} next={next} setNext={setNext} /> : <QuizQuestionEnd />}
+      {topic && next < 9 ? <QuizQuestionStart questionTopic={topic} next={next} setNext={setNext} /> : topic == "" ? null : <QuizQuestionEnd setTopic={setTopic} setNext={setNext} />}
     </>
   );
 }
