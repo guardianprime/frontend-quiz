@@ -1,8 +1,8 @@
 function QuizQuestionEnd() {
   return (
     <div>
-      Quiz completed start Quiz completed You scored... score out of 10 Quiz
-      completed end
+      <h1>Quiz completed</h1>
+      <p>You scored... score out of 10</p>
     </div>
   );
 }
