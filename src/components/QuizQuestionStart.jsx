@@ -1,19 +1,25 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [questionsArray, setQuestionsArray] = useState([]);
   const [answer, setAnswer] = useState("");
+  const [done, setDone] = useState(false);
+  const choosenOption = useRef("");
 
   function handleSubmit() {
-    console.log("Submitted!!");
-    setNext((n) => n + 1);
+    if (choosenOption.current === answer) setScore((s) => s + 1);
+    setDone(true);
   }
 
-  function handleCheckingAnswer(e) {
-    if (e.target.innerText === answer) setScore((s) => s + 1);
-    console.log("supposed to show",);
+  function handleOptionChoosing(e) {
+    choosenOption.current = e.target.innerText;
+  }
+
+  function handleQuestionChange() {
+    setNext((n) => n + 1);
+    setDone(false);
   }
 
   useEffect(() => {
@@ -62,12 +68,12 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
         <p>{question}</p>
         <ul>
           {options.length > 0 ? (
-            options.map((option) => <li key={option} onClick={handleCheckingAnswer}>{option}</li>)
+            options.map((option) => <li key={option} onClick={handleOptionChoosing}>{option}</li>)
           ) : (
             <div>No question options available</div>
           )}
         </ul>
-        <button onClick={handleSubmit}>Submit Answer</button>
+        <button onClick={done ? handleQuestionChange : handleSubmit}>{done ? "Next Question" : "Submit Answer"}</button>
       </div>
     );
   };
