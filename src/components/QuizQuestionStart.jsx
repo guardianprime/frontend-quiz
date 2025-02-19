@@ -5,6 +5,8 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   const [isLoading, setIsLoading] = useState(false);
   const [questionsArray, setQuestionsArray] = useState([]);
   const [answer, setAnswer] = useState("");
+  const [selectedList, setSelectedList] = useState(null);
+
   const [done, setDone] = useState(false);
   const choosenOption = useRef("");
 
@@ -13,8 +15,10 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
     setDone(true);
   }
 
-  function handleOptionChoosing(e) {
+  function handleOptionChoosing(option, e) {
     choosenOption.current = e.target.innerText;
+    setSelectedList(option);
+    console.log(e);
   }
 
   function handleQuestionChange() {
@@ -68,7 +72,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
         <p>{question}</p>
         <ul>
           {options.length > 0 ? (
-            options.map((option) => <li key={option} onClick={handleOptionChoosing}>{option}</li>)
+            options.map((option) => <li key={option} onClick={(e) => handleOptionChoosing(option, e)} className={selectedList === option ? "pick" : ""}>{option}</li>)
           ) : (
             <div>No question options available</div>
           )}
