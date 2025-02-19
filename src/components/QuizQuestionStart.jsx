@@ -1,14 +1,19 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 
-function QuizQuestionStart({ questionTopic, next, setNext }) {
+function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [questionsArray, setQuestionsArray] = useState([]);
+  const [answer, setAnswer] = useState("");
 
   function handleSubmit() {
     console.log("Submitted!!");
-    setNext((n) => n = n + 1);
+    setNext((n) => n + 1);
+  }
+
+  function handleCheckingAnswer(e) {
+    if (e.target.innerText === answer) setScore((s) => s + 1);
+    console.log("supposed to show",);
   }
 
   useEffect(() => {
@@ -34,6 +39,12 @@ function QuizQuestionStart({ questionTopic, next, setNext }) {
     getQuestions();
   }, [questionTopic]);
 
+  useEffect(() => {
+    if (questionsArray?.questions?.[next]) {
+      setAnswer(questionsArray.questions[next].answer);
+    }
+  }, [next, questionsArray]);
+
   const renderContent = () => {
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
@@ -51,7 +62,7 @@ function QuizQuestionStart({ questionTopic, next, setNext }) {
         <p>{question}</p>
         <ul>
           {options.length > 0 ? (
-            options.map((option) => <li key={option}>{option}</li>)
+            options.map((option) => <li key={option} onClick={handleCheckingAnswer}>{option}</li>)
           ) : (
             <div>No question options available</div>
           )}
