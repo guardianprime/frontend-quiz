@@ -23,6 +23,8 @@
   }
 }
 
+/* CLASS STYLES FOR FAIL CORRECT AND PICK USEDFOR THE LISTS */
+
 .fail {
   border: 2px solid #f00;
 }
@@ -33,4 +35,10 @@
 
 .correct {
   border: 2px solid green;
+}
+
+
+/* GENERAL STYLES */
+.container {
+  
 }
