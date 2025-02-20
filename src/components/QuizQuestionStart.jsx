@@ -76,14 +76,14 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
     const options = questionsArray?.questions?.[next]?.options || [];
 
     return (
-      <div className="sub-container">
+      <div>
         <span>please work</span>
         <div>
           <span>{questionTopic}</span>
         </div>
         <h2>Question {next + 1} of 10</h2>
         <p>{question}</p>
-        <ul className="question-list">
+        <ul>
           {options.length > 0 ? (
             options.map((option) => <li key={option} onClick={handleSelectingOption} className={done ? (option == answer ? "correct" : "") : ""}>{option}</li>)
           ) : (

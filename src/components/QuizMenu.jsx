@@ -8,10 +8,10 @@ function QuizMenu({ setTopic }) {
   }
 
   return (
-    <div className="sub-container">
+    <div className="container">
       <h1>Welcome to the Frontend Quiz!</h1>
       <p>Pick a subject to get started.</p>
-      <ul className="menu-list">
+      <ul>
         <li onClick={() => handleTopic("HTML")}>
           <img alt="html icon" src="/assets/images/icon-html.svg" />
           <span>HTML</span>
