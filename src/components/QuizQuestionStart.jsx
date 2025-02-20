@@ -80,7 +80,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
         <p>{question}</p>
         <ul>
           {options.length > 0 ? (
-            options.map((option) => <li key={option} onClick={handleSelectingOption}>{option}</li>)
+            options.map((option) => <li key={option} onClick={handleSelectingOption} className={done? (option == answer? "correct": ""): ""}>{option}</li>)
           ) : (
             <div>No question options available</div>
           )}
