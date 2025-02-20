@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState, useRef } from "react";
 
 function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
@@ -5,25 +6,33 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   const [isLoading, setIsLoading] = useState(false);
   const [questionsArray, setQuestionsArray] = useState([]);
   const [answer, setAnswer] = useState("");
-  const [selectedList, setSelectedList] = useState(null);
-
-  const [done, setDone] = useState(false);
-  const choosenOption = useRef("");
+    const [done, setDone] = useState(false);
+  const previousOption = useRef(null);
 
   function handleSubmit() {
-    if (choosenOption.current === answer) setScore((s) => s + 1);
+    if (previousOption.current) {
+      previousOption.current.classList.remove("pick");
+      if (previousOption.current.innerText === answer) {
+        previousOption.current.classList.add("correct");
+        setScore((s) => s + 1);
+      } else {
+        previousOption.current.classList.add("fail");
+      }
+    }
     setDone(true);
   }
-
-  function handleOptionChoosing(option, e) {
-    choosenOption.current = e.target.innerText;
-    setSelectedList(option);
-    console.log(e);
-  }
-
-  function handleQuestionChange() {
+  
+  function handleChangeNext(){
     setNext((n) => n + 1);
     setDone(false);
+  }
+
+  function handleSelectingOption(e) {
+    if (previousOption.current) {
+      previousOption.current.classList.remove("pick");
+    }
+    e.target.classList.add("pick");
+    previousOption.current = e.target;
   }
 
   useEffect(() => {
@@ -37,7 +46,6 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
         const data = await res.json();
         const topicObject = { HTML: 0, CSS: 1, Javascript: 2, Accessibility: 3 };
         const clean = data[topicObject[questionTopic]]; // this is the array of questions for the topic
-        console.log("finally!!!", clean);
         setQuestionsArray(clean);
       } catch (err) {
         setError(err.message);
@@ -72,12 +80,12 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
         <p>{question}</p>
         <ul>
           {options.length > 0 ? (
-            options.map((option) => <li key={option} onClick={(e) => handleOptionChoosing(option, e)} className={selectedList === option ? "pick" : ""}>{option}</li>)
+            options.map((option) => <li key={option} onClick={handleSelectingOption}>{option}</li>)
           ) : (
             <div>No question options available</div>
           )}
         </ul>
-        <button onClick={done ? handleQuestionChange : handleSubmit}>{done ? "Next Question" : "Submit Answer"}</button>
+        <button onClick={done? handleChangeNext : handleSubmit}>{done? "Next Question":"Submit Answer"}</button>
       </div>
     );
   };
