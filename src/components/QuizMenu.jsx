@@ -3,7 +3,6 @@
 function QuizMenu({ setTopic }) {
 
   function handleTopic(topic) {
-    console.log(topic);
     setTopic(topic);
   }
 

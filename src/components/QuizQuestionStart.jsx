@@ -1,5 +1,8 @@
-/* eslint-disable react/prop-types */
+
 import { useEffect, useState, useRef } from "react";
+import LoadingBar from "./LoadingBar";
+
+const imageClass = "one";
 
 function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   const [error, setError] = useState("");
@@ -76,13 +79,16 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
     const options = questionsArray?.questions?.[next]?.options || [];
 
     return (
-      <div>
-        <span>please work</span>
-        <div>
+      <div className="container">
+        <div class="image-container__flex">
+          <div className={"main-image--container"}>
+          <img alt="topic icon" src={questionsArray.icon} />
+          </div>
           <span>{questionTopic}</span>
         </div>
         <h2>Question {next + 1} of 10</h2>
         <p>{question}</p>
+        <LoadingBar />
         <ul>
           {options.length > 0 ? (
             options.map((option) => <li key={option} onClick={handleSelectingOption} className={done ? (option == answer ? "correct" : "") : ""}>{option}</li>)
