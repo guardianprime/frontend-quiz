@@ -1,9 +1,17 @@
+
 function ModeToggle() {
+
+
     return (
-        <div>
-            <div><img alt="sun icon" /></div>
-            <div className="toggle-button"></div>
-            <div><img alt="moon icon" /></div>
+        <div className="modeToggle-container">
+            <div>
+                <img alt="sun icon" src="assets/images/icon-sun-dark.svg" />
+            </div>
+            <div>
+            </div>
+            <div>
+                <img alt="moon icon" src="assets/images/icon-moon-dark.svg" />
+            </div>
         </div>
     )
 }

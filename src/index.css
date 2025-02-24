@@ -66,6 +66,10 @@ ul {
   margin-top: 40px;
 }
 
+.question-ul {
+  height: 45%;
+}
+
 ul li {
   list-style: none;
 }
@@ -73,16 +77,27 @@ ul li {
 li {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   margin: 10px 0px;
   border-radius: 8px;
   padding: 10px;
   background-color: white;
 }
 
-li span, .image-container__flex span {
+li .option-lang,
+.image-container__flex span {
   font-weight: 600;
   margin-left: 15px;
+}
+
+.letter-container {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--BG-COLOR-MAIN);
 }
 
 li:hover,
@@ -120,17 +135,44 @@ li:focus {
   align-items: center;
 }
 
-
+button {
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  background-color: purple;
+  color: white;
+  font-family: inherit;
+  margin-top: 20px;
+}
 
 /* LOADING BAR */
 .loading-bar-container {
   padding: 3px;
   border-radius: 5px;
-  height: 10px;
+  height: 13px;
   width: 100%;
+  background-color: white;
 }
 
 .loading-bar {
-  width: 100%;
-  background-color: blue;
+  width: 35%;
+  height: 7px;
+  border-radius: 3px;
+  background-color: purple;
+}
+
+/* MODE TOGGLE CONTAINER */
+
+.header-subcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modeToggle-container {
+  width: 60px;
+  height: 30px;
+  display: flex;
 }

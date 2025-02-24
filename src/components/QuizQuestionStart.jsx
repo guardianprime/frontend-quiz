@@ -1,8 +1,9 @@
 
 import { useEffect, useState, useRef } from "react";
 import LoadingBar from "./LoadingBar";
+import ModeToggle from "./ModeToggle";
 
-const imageClass = "one";
+const imageClass = { HTML: "one", CSS: "two", Javascript: "three", Accessibility: "four" };
 
 function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   const [error, setError] = useState("");
@@ -80,18 +81,24 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
 
     return (
       <div className="container">
-        <div class="image-container__flex">
-          <div className={"main-image--container"}>
-          <img alt="topic icon" src={questionsArray.icon} />
+        <div className="header-subcontainer">
+          <div className="image-container__flex">
+            <div className={`main-image--container ${imageClass[questionTopic]}`}>
+              <img alt="topic icon" src={questionsArray.icon} />
+            </div>
+            <span>{questionTopic}</span>
           </div>
-          <span>{questionTopic}</span>
+          <ModeToggle />
         </div>
         <h2>Question {next + 1} of 10</h2>
         <p>{question}</p>
         <LoadingBar />
-        <ul>
+        <ul className="question-ul">
           {options.length > 0 ? (
-            options.map((option) => <li key={option} onClick={handleSelectingOption} className={done ? (option == answer ? "correct" : "") : ""}>{option}</li>)
+            options.map((option) => <li key={option} onClick={handleSelectingOption} className={done ? (option == answer ? "correct" : "") : ""}>
+              <div className="letter-container"><span>A</span></div>
+              <span className="option-lang">{option}</span>
+            </li>)
           ) : (
             <div>No question options available</div>
           )}
