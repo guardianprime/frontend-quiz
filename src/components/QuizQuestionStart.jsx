@@ -10,18 +10,21 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   const [questionsArray, setQuestionsArray] = useState([]);
   const [answer, setAnswer] = useState("");
   const [done, setDone] = useState(false);
+  const [selectionError, setSelectionError] = useState("");
   const previousOption = useRef(null);
 
   function handleSubmit() {
-    if (previousOption.current) {
-      previousOption.current.classList.remove("pick");
-      if (previousOption.current.innerText === answer) {
-        setScore((s) => s + 1);
-      } else {
-        previousOption.current.classList.add("fail");
-      }
+    if (!previousOption.current) {
+      setSelectionError("Please select an option.");
+      return;
     }
-
+    setSelectionError("");
+    previousOption.current.classList.remove("pick");
+    if (previousOption.current.innerText === answer) {
+      setScore((s) => s + 1);
+    } else {
+      previousOption.current.classList.add("fail");
+    }
     setDone(true);
   }
 
@@ -110,6 +113,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
           )}
         </ul>
         <button onClick={done ? handleChangeNext : handleSubmit}>{done ? "Next Question" : "Submit Answer"}</button>
+        {selectionError && <div className="error-message">{selectionError}</div>}
       </div>
     );
   };

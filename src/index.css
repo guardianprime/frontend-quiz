@@ -205,3 +205,11 @@ button {
   height: 30px;
   display: flex;
 }
+
+
+/* ERROR MESSAGE STYLES */
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
