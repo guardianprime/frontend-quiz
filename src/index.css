@@ -185,7 +185,6 @@ button {
 }
 
 .loading-bar {
-  width: 35%;
   height: 7px;
   border-radius: 3px;
   background-color: purple;

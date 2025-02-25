@@ -31,6 +31,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   function handleChangeNext() {
     setNext((n) => n + 1);
     setDone(false);
+    previousOption.current = null;
   }
 
   function handleSelectingOption(e) {
@@ -89,7 +90,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
         </div>
         <h2>Question {next + 1} of 10</h2>
         <p>{question}</p>
-        <LoadingBar />
+        <LoadingBar next={next} />
         <ul className="question-ul" id="question-ul">
           {options.length > 0 ? (
             options.map((option) => (
