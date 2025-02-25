@@ -1,4 +1,3 @@
-
 import { useEffect, useState, useRef } from "react";
 import LoadingBar from "./LoadingBar";
 import ModeToggle from "./ModeToggle";
@@ -31,14 +30,12 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
     setDone(false);
   }
 
-
-
   function handleSelectingOption(e) {
     if (previousOption.current) {
       previousOption.current.classList.remove("pick");
     }
-    e.target.classList.add("pick");
-    previousOption.current = e.target;
+    e.currentTarget.classList.add("pick");
+    previousOption.current = e.currentTarget;
   }
 
   useEffect(() => {
@@ -68,8 +65,6 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
       setAnswer(questionsArray.questions[next].answer);
     }
   }, [next, questionsArray]);
-
-
 
   const renderContent = () => {
     if (isLoading) return <div>Loading...</div>;
@@ -104,11 +99,10 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
                   <div className="letter-container"><span>A</span></div>
                   <span className="option-lang">{option}</span>
                 </div>
-                {done &&  (
-                  <div className="li__div-second">
-                    <img alt="icon" src={option === answer ? "assets/images/icon-correct.svg" : "assets/images/icon-incorrect.svg"} />
-                  </div>
-                )}
+                {done && <div className="li__div-second">
+                  <img alt="icon" src={option === answer ? "assets/images/icon-correct.svg" : "assets/images/icon-incorrect.svg"} />
+                </div>
+                }
               </li>
             ))
           ) : (
