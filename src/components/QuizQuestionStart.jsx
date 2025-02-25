@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from "react";
 import LoadingBar from "./LoadingBar";
 import ModeToggle from "./ModeToggle";
+import LoaderSpinner from "./LoaderSpinner";
 
 const imageClass = { HTML: "one", CSS: "two", Javascript: "three", Accessibility: "four" };
 
@@ -71,7 +72,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   }, [next, questionsArray]);
 
   const renderContent = () => {
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading) return <LoaderSpinner/>;
     if (error) return <div>{error}</div>;
 
     const question = questionsArray?.questions?.[next]?.question || "No questions available";
