@@ -77,6 +77,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
     const question = questionsArray?.questions?.[next]?.question || "No questions available";
     const options = questionsArray?.questions?.[next]?.options || [];
 
+    const letters = ["A", "B", "C", "D"];
     return (
       <div className="container">
         <div className="header-subcontainer">
@@ -93,14 +94,14 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
         <LoadingBar next={next} />
         <ul className="question-ul" id="question-ul">
           {options.length > 0 ? (
-            options.map((option) => (
+            options.map((option, index) => (
               <li
                 key={option}
                 onClick={handleSelectingOption}
                 className={done ? (option === answer ? "correct" : "fail") : "question-ul-li"}
               >
                 <div className="li__div-first">
-                  <div className="letter-container"><span>A</span></div>
+                  <div className="letter-container"><span>{letters[index]}</span></div>
                   <span className="option-lang">{option}</span>
                 </div>
                 {done && <div className="li__div-second">
