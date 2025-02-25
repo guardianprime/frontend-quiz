@@ -17,12 +17,12 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
     if (previousOption.current) {
       previousOption.current.classList.remove("pick");
       if (previousOption.current.innerText === answer) {
-        previousOption.current.classList.add("correct");
         setScore((s) => s + 1);
       } else {
         previousOption.current.classList.add("fail");
       }
     }
+
     setDone(true);
   }
 
@@ -31,8 +31,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
     setDone(false);
   }
 
-  /*  function handleScore(e) {
-    } */
+
 
   function handleSelectingOption(e) {
     if (previousOption.current) {
@@ -93,12 +92,25 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
         <h2>Question {next + 1} of 10</h2>
         <p>{question}</p>
         <LoadingBar />
-        <ul className="question-ul">
+        <ul className="question-ul" id="question-ul">
           {options.length > 0 ? (
-            options.map((option) => <li key={option} onClick={handleSelectingOption} className={done ? (option == answer ? "correct" : "") : ""}>
-              <div className="letter-container"><span>A</span></div>
-              <span className="option-lang">{option}</span>
-            </li>)
+            options.map((option) => (
+              <li
+                key={option}
+                onClick={handleSelectingOption}
+                className={done ? (option === answer ? "correct" : "fail") : "question-ul-li"}
+              >
+                <div className="li__div-first">
+                  <div className="letter-container"><span>A</span></div>
+                  <span className="option-lang">{option}</span>
+                </div>
+                {done &&  (
+                  <div className="li__div-second">
+                    <img alt="icon" src={option === answer ? "assets/images/icon-correct.svg" : "assets/images/icon-incorrect.svg"} />
+                  </div>
+                )}
+              </li>
+            ))
           ) : (
             <div>No question options available</div>
           )}

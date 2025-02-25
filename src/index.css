@@ -67,7 +67,11 @@ ul {
 }
 
 .question-ul {
-  height: 45%;
+  height: 50%;
+}
+
+.question-ul li {
+  justify-content: space-between;
 }
 
 ul li {
@@ -87,6 +91,21 @@ li .option-lang,
 .image-container__flex span {
   font-weight: 600;
   margin-left: 15px;
+}
+
+.correct .letter-container {
+  background-color: green;
+  color: white;
+}
+
+.fail .letter-container {
+  background-color: red;
+  color: white;
+}
+
+.pick .letter-container {
+  background-color: blue;
+  color: white;
 }
 
 .letter-container {
@@ -133,6 +152,16 @@ li:focus {
 .image-container__flex {
   display: flex;
   align-items: center;
+}
+
+.li__div-first {
+  display: flex;
+  align-items: center;
+  width: 90%;
+}
+
+.li__div-second {
+  width: 10%;
 }
 
 button {
