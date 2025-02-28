@@ -8,10 +8,29 @@ function App() {
   const [topic, setTopic] = useState("");
   const [next, setNext] = useState(0);
   const [score, setScore] = useState(0);
+  const [questionsArray, setQuestionsArray] = useState([]);
   return (
     <>
       {!topic && <QuizMenu setTopic={setTopic} />}
-      {topic && next < 9 ? <QuizQuestionStart questionTopic={topic} next={next} setNext={setNext} setScore={setScore} /> : topic == "" ? null : <QuizQuestionEnd setTopic={setTopic} setNext={setNext} score={score} setScore={setScore} />}
+      {topic && next < 9 ? (
+        <QuizQuestionStart
+          questionTopic={topic}
+          next={next}
+          setNext={setNext}
+          setScore={setScore}
+          questionsArray={questionsArray}
+          setQuestionsArray={setQuestionsArray}
+        />
+      ) : topic == "" ? null : (
+        <QuizQuestionEnd
+          setTopic={setTopic}
+          setNext={setNext}
+          score={score}
+          setScore={setScore}
+          questionTopic={topic}
+          questionArray={questionsArray}
+        />
+      )}
     </>
   );
 }

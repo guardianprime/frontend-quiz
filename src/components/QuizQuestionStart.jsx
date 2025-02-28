@@ -5,10 +5,9 @@ import LoaderSpinner from "./LoaderSpinner";
 
 const imageClass = { HTML: "one", CSS: "two", Javascript: "three", Accessibility: "four" };
 
-function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
+function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsArray, setQuestionsArray }) {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [questionsArray, setQuestionsArray] = useState([]);
   const [answer, setAnswer] = useState("");
   const [done, setDone] = useState(false);
   const [selectionError, setSelectionError] = useState("");
