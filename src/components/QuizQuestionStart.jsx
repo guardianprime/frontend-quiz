@@ -21,11 +21,10 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
     }
     setSelectionError("");
     previousOption.current.classList.remove("pick");
-    if (previousOption.current.innerText === answer) {
+    const selectedOptionText = previousOption.current.querySelector(".option-lang").innerText;
+    if (selectedOptionText === answer) {
       setScore((s) => s + 1);
-    } else {
-      previousOption.current.classList.add("fail");
-    }
+    } 
     setDone(true);
   }
 
@@ -68,11 +67,13 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore }) {
   useEffect(() => {
     if (questionsArray?.questions?.[next]) {
       setAnswer(questionsArray.questions[next].answer);
+    } else {
+      setAnswer("");
     }
   }, [next, questionsArray]);
 
   const renderContent = () => {
-    if (isLoading) return <LoaderSpinner/>;
+    if (isLoading) return <LoaderSpinner />;
     if (error) return <div>{error}</div>;
 
     const question = questionsArray?.questions?.[next]?.question || "No questions available";

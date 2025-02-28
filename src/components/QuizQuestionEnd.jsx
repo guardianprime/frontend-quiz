@@ -8,10 +8,15 @@ function QuizQuestionEnd({ setNext, setTopic, score, setScore }) {
   }
 
   return (
-    <div>
-      <h1>Quiz completed</h1>
-      <p>You scored</p>
-      <p> {score} out of 10</p>
+    <div className="container">
+      <div className="heading-container">
+        <h2>Quiz completed</h2>
+        <h1>You scored..</h1>
+      </div>
+      <div className="score-container">
+        <span className="score">{score}</span>
+        <p>out of 10</p>
+      </div>
       <button onClick={handleReset}>Play Again</button>
     </div>
   );

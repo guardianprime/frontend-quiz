@@ -175,6 +175,14 @@ button {
   margin-top: 20px;
 }
 
+/* Question end component styles */
+
+.score {
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
 /* LOADING BAR */
 .loading-bar-container {
   padding: 3px;
@@ -204,7 +212,6 @@ button {
   height: 30px;
   display: flex;
 }
-
 
 /* ERROR MESSAGE STYLES */
 .error-message {
@@ -250,9 +257,15 @@ button {
 }
 
 @keyframes rotate {
-  0% { transform: rotate(0deg) scale(0.8) }
-  50% { transform: rotate(360deg) scale(1.2) }
-  100% { transform: rotate(720deg) scale(0.8) }
+  0% {
+    transform: rotate(0deg) scale(0.8);
+  }
+  50% {
+    transform: rotate(360deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(720deg) scale(0.8);
+  }
 }
 
 @keyframes ball1 {
