@@ -23,7 +23,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
     const selectedOptionText = previousOption.current.querySelector(".option-lang").innerText;
     if (selectedOptionText === answer) {
       setScore((s) => s + 1);
-    } 
+    }
     setDone(true);
   }
 
@@ -61,7 +61,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
     }
 
     getQuestions();
-  }, [questionTopic]);
+  }, [questionTopic, setQuestionsArray]);
 
   useEffect(() => {
     if (questionsArray?.questions?.[next]) {
@@ -90,33 +90,39 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
           </div>
           <ModeToggle />
         </div>
-        <h2>Question {next + 1} of 10</h2>
-        <p className="question">{question}</p>
-        <LoadingBar next={next} />
-        <ul className="question-ul" id="question-ul">
-          {options.length > 0 ? (
-            options.map((option, index) => (
-              <li
-                key={option}
-                onClick={handleSelectingOption}
-                className={done ? (option === answer ? "correct" : "fail") : "question-ul-li"}
-              >
-                <div className="li__div-first">
-                  <div className="letter-container"><span>{letters[index]}</span></div>
-                  <span className="option-lang">{option}</span>
-                </div>
-                {done && <div className="li__div-second">
-                  <img alt="icon" src={option === answer ? "assets/images/icon-correct.svg" : "assets/images/icon-incorrect.svg"} />
-                </div>
-                }
-              </li>
-            ))
-          ) : (
-            <div>No question options available</div>
-          )}
-        </ul>
-        <button onClick={done ? handleChangeNext : handleSubmit}>{done ? "Next Question" : "Submit Answer"}</button>
-        {selectionError && <div className="error-message">{selectionError}</div>}
+        <div className="wrapper">
+          <div className="question-container">
+            <h2>Question {next + 1} of 10</h2>
+            <p className="question">{question}</p>
+            <LoadingBar next={next} />
+          </div>
+          <div className="options-container">
+            <ul className="question-ul" id="question-ul">
+              {options.length > 0 ? (
+                options.map((option, index) => (
+                  <li
+                    key={option}
+                    onClick={handleSelectingOption}
+                    className={done ? (option === answer ? "correct" : "fail") : "question-ul-li"}
+                  >
+                    <div className="li__div-first">
+                      <div className="letter-container"><span>{letters[index]}</span></div>
+                      <span className="option-lang">{option}</span>
+                    </div>
+                    {done && <div className="li__div-second">
+                      <img alt="icon" src={option === answer ? "assets/images/icon-correct.svg" : "assets/images/icon-incorrect.svg"} />
+                    </div>
+                    }
+                  </li>
+                ))
+              ) : (
+                <div>No question options available</div>
+              )}
+            </ul>
+            <button onClick={done ? handleChangeNext : handleSubmit}>{done ? "Next Question" : "Submit Answer"}</button>
+            {selectionError && <div className="error-message">{selectionError}</div>}
+          </div>
+        </div>
       </div>
     );
   };

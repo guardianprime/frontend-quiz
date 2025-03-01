@@ -10,6 +10,7 @@ function QuizMenu({ setTopic }) {
   return (
     <div className="container">
     <ModeToggle/>
+    <div className="wrapper">
       <div className="heading-container">
         <h2>Welcome to the </h2>
         <h1>Frontend Quiz!</h1>
@@ -41,6 +42,7 @@ function QuizMenu({ setTopic }) {
           <span className="option-lang">Accessibility</span>
         </li>
       </ul>
+    </div>
     </div >
   );
 }

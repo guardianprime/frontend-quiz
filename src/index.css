@@ -15,7 +15,7 @@
   line-height: 1.5;
 
   color-scheme: light dark;
-  --BG-COLOR-MAIN:#e3e3e3;
+  --BG-COLOR-MAIN: #e3e3e3;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -315,10 +315,9 @@ button {
   }
 }
 
-
 /* TABLET STYLES */
 
-@media screen and (min-width: 450px){
+@media screen and (min-width: 450px) {
   ul li {
     height: 22%;
     padding: 20px;
@@ -345,5 +344,88 @@ button {
   button {
     height: 70px;
     font-size: 1.3rem;
+  }
+}
+
+/* LAPTOP STYLES */
+@media screen and (min-width: 1024px) {
+  .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 100px;
+    height: 80vh;
+  }
+
+  .heading-container {
+    width: 30%;
+    height: 400px;
+    padding-top: 100px;
+    padding-inline: 20px;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+  }
+
+  ul {
+    width: 45%;
+  }
+
+  ul li {
+    height: 100px;
+  }
+
+  .question-container {
+    width: 45%;
+    height: 400px;
+  }
+
+  .options-container {
+    width: 50%;
+    height: 100%;
+  }
+
+  ul li .option-lang {
+    font-size: clamp(1vh, 1rem, 1.3rem);
+  }
+
+  .question-ul {
+    width: 100%;
+    height: 80%;
+    margin: 0;
+  }
+
+  .loading-bar-container {
+    margin-top: 100px;
+  }
+
+  .wrapper-end {
+    display: flex;
+    justify-content: space-between;
+    height: 60vh;
+  }
+
+  .heading-container {
+    width: 40%;
+    height: 100%;
+  }
+
+  .score-wrapper {
+    width: 50%;
+    height: 100%;
+  }
+
+  .score-container {
+    height: 70%;
+  }
+
+  .main-image--container {
+    width: 50px;
+    height: 50px;
   }
 }
