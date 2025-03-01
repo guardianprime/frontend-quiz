@@ -13,7 +13,6 @@
   font-family: myFirstFont, Inter;
   line-height: 1.5;
 
-  color-scheme: light dark;
   --FAIL-COLOR: #f00;
   --CORRECT-COLOR: #00ff00;
   --PICK-COLOR: #blue;
@@ -35,6 +34,7 @@
 @media (prefers-color-scheme: light) {
   :root {
     --BG-COLOR-MAIN: #e3e3e3;
+    --LIST-COLOR: #ffffff;
     color: #213547;
     background-color: #ffffff;
   }
@@ -42,9 +42,10 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --BG-COLOR-MAIN: #171717;
+    --BG-COLOR-MAIN: #0b0b45;
+    --LIST-COLOR: rgb(22, 22, 48);
     color: #ffffff;
-    background-color: #171717;
+    background-color: #0b0b45;
   }
 }
 
@@ -107,7 +108,7 @@ li {
   margin: 10px 0px;
   border-radius: 8px;
   padding: 10px;
-  background-color: white;
+  background-color: var(--LIST-COLOR);
 }
 
 li .option-lang,
@@ -198,6 +199,11 @@ button {
   margin-top: 20px;
 }
 
+button:hover,
+button:focus {
+  background-color: var(--FOUR-BGCOLOR);
+}
+
 /* Question end component styles */
 
 .score {
@@ -207,7 +213,7 @@ button {
 }
 
 .score-container {
-  background-color: white;
+  background-color: var(--LIST-COLOR);
   margin-top: 20px;
   padding: 20px;
   height: 40%;
