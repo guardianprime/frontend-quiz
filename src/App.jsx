@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       {!topic && <QuizMenu setTopic={setTopic} />}
-      {topic && next < 9 ? (
+      {topic && next < 10 ? (
         <QuizQuestionStart
           questionTopic={topic}
           next={next}

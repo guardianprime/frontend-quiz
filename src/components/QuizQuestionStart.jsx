@@ -91,7 +91,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
           <ModeToggle />
         </div>
         <h2>Question {next + 1} of 10</h2>
-        <p>{question}</p>
+        <p className="question">{question}</p>
         <LoadingBar next={next} />
         <ul className="question-ul" id="question-ul">
           {options.length > 0 ? (
