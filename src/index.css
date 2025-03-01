@@ -10,12 +10,21 @@
 }
 
 :root {
-  /* font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif; */
   font-family: myFirstFont, Inter;
   line-height: 1.5;
 
   color-scheme: light dark;
-  --BG-COLOR-MAIN: #e3e3e3;
+  --FAIL-COLOR: #f00;
+  --CORRECT-COLOR: #00ff00;
+  --PICK-COLOR: #blue;
+
+  /* img bg colors */
+  --ONE-BGCOLOR: #fff1e9;
+  --TWO-BGCOLOR: #e0fdef;
+  --THREE-BGCOLOR: #ebf0ff;
+  --FOUR-BGCOLOR: #f6e7ff;
+
+  --BTN-COLOR: purple;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,8 +34,17 @@
 
 @media (prefers-color-scheme: light) {
   :root {
+    --BG-COLOR-MAIN: #e3e3e3;
     color: #213547;
     background-color: #ffffff;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --BG-COLOR-MAIN: #171717;
+    color: #ffffff;
+    background-color: #171717;
   }
 }
 
@@ -38,15 +56,15 @@
 /* CLASS STYLES FOR FAIL CORRECT AND PICK USEDFOR THE LISTS */
 
 .fail {
-  border: 2px solid #f00;
+  border: 2px solid var(--FAIL-COLOR);
 }
 
 .pick {
-  border: 2px solid blue;
+  border: 2px solid VAR(--PICK-COLOR);
 }
 
 .correct {
-  border: 2px solid green;
+  border: 2px solid var(--CORRECT-COLOR);
 }
 
 /* GENERAL STYLES */
@@ -99,17 +117,17 @@ li .option-lang,
 }
 
 .correct .letter-container {
-  background-color: green;
+  background-color: var(--CORRECT-COLOR);
   color: white;
 }
 
 .fail .letter-container {
-  background-color: red;
+  background-color: var(--FAIL-COLOR);
   color: white;
 }
 
 .pick .letter-container {
-  background-color: blue;
+  background-color: var(--PICK-COLOR);
   color: white;
 }
 
@@ -139,19 +157,19 @@ li:focus {
 }
 
 .one {
-  background-color: #fff1e9;
+  background-color: var(--ONE-BGCOLOR);
 }
 
 .two {
-  background-color: #e0fdef;
+  background-color: var(--TWO-BGCOLOR);
 }
 
 .three {
-  background-color: #ebf0ff;
+  background-color: var(--THREE-BGCOLOR);
 }
 
 .four {
-  background-color: #f6e7ff;
+  background-color: var(--FOUR-BGCOLOR);
 }
 
 .image-container__flex {
@@ -212,7 +230,7 @@ button {
 .loading-bar {
   height: 7px;
   border-radius: 3px;
-  background-color: purple;
+  background-color: var(--BTN-COLOR);
 }
 
 /* MODE TOGGLE CONTAINER */
@@ -261,15 +279,17 @@ button {
   height: 20px;
   width: 20px;
 }
+
 .loader:before {
   animation: ball1 1s infinite;
   background-color: #fff;
-  box-shadow: 30px 0 0 purple;
+  box-shadow: 30px 0 0 var(--BTN-COLOR);
   margin-bottom: 10px;
 }
+
 .loader:after {
   animation: ball2 1s infinite;
-  background-color: purple;
+  background-color: var(--BTN-COLOR);
   box-shadow: 30px 0 0 #fff;
 }
 
@@ -287,15 +307,15 @@ button {
 
 @keyframes ball1 {
   0% {
-    box-shadow: 30px 0 0 purple;
+    box-shadow: 30px 0 0 var(--BTN-COLOR);
   }
   50% {
-    box-shadow: 0 0 0 purple;
+    box-shadow: 0 0 0 var(--BTN-COLOR);
     margin-bottom: 0;
     transform: translate(15px, 15px);
   }
   100% {
-    box-shadow: 30px 0 0 purple;
+    box-shadow: 30px 0 0 var(--BTN-COLOR);
     margin-bottom: 10px;
   }
 }
