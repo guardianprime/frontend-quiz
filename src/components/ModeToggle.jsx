@@ -21,9 +21,9 @@ function ModeToggle({ handleTheme, isDark }) {
                 onHandleColor="#020202"
                 offHandleColor="#ffffff"
                 offColor="#020202"
-                handleDiameter={38}
-                height={40}
-                width={80}
+                handleDiameter={28}
+                height={30}
+                width={55}
             />
             <div className="toggle-img--container">
                 <img alt="moon icon" src={!isDark ? "assets/images/icon-moon-dark.svg" : "assets/images/icon-moon-light.svg"} />
