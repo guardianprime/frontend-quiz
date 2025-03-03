@@ -72,7 +72,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
   }, [next, questionsArray]);
 
   const renderContent = () => {
-    if (isLoading) return <LoaderSpinner />;
+    if (isLoading) return <LoaderSpinner isDark={isDark}/>;
     if (error) return <div>{error}</div>;
 
     const question = questionsArray?.questions?.[next]?.question || "No questions available";

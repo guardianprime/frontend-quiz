@@ -276,7 +276,6 @@ button:focus {
 .loader-container {
   width: 100%;
   height: 100vh;
-  outline: 2px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -299,7 +298,7 @@ button:focus {
 
 .loader:before {
   animation: ball1 1s infinite;
-  background-color: #fff;
+  background-color: var(--BG-COLOR-MAIN);
   box-shadow: 30px 0 0 var(--BTN-COLOR);
   margin-bottom: 10px;
 }
@@ -307,7 +306,7 @@ button:focus {
 .loader:after {
   animation: ball2 1s infinite;
   background-color: var(--BTN-COLOR);
-  box-shadow: 30px 0 0 #fff;
+  box-shadow: 30px 0 0 var(--BG-COLOR-MAIN);
 }
 
 @keyframes rotate {
@@ -339,15 +338,15 @@ button:focus {
 
 @keyframes ball2 {
   0% {
-    box-shadow: 30px 0 0 #fff;
+    box-shadow: 30px 0 0 var(--BG-COLOR-MAIN);
   }
   50% {
-    box-shadow: 0 0 0 #fff;
+    box-shadow: 0 0 0 var(--BG-COLOR-MAIN);
     margin-top: -20px;
     transform: translate(15px, 15px);
   }
   100% {
-    box-shadow: 30px 0 0 #fff;
+    box-shadow: 30px 0 0 var(--BG-COLOR-MAIN);
     margin-top: 0;
   }
 }

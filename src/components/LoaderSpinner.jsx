@@ -1,7 +1,7 @@
-function LoaderSpinner(){
+function LoaderSpinner({isDark}){
     
     return(
-        <div className="loader-container"><span className="loader"></span></div>
+        <div className="loader-container" data-theme={isDark? "dark": "light"}><span className="loader"></span></div>
     )
 }
 
