@@ -14,8 +14,8 @@
   line-height: 1.5;
 
   --FAIL-COLOR: #f00;
-  --CORRECT-COLOR: #00ff00;
-  --PICK-COLOR: #blue;
+  --CORRECT-COLOR: #177d17;
+  --PICK-COLOR: blue;
   --BG-COLOR-MAIN: #e3e3e3;
   --LIST-COLOR: #ffffff;
   color: #213547;
@@ -34,12 +34,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-[data-theme= "dark"] {
+[data-theme="dark"] {
   --BG-COLOR-MAIN: #0b0b45;
   --LIST-COLOR: rgb(22, 22, 48);
   color: #ffffff;
   background-color: #0b0b45;
-  
 }
 
 /* UTILITIES CLASS*/
@@ -71,6 +70,7 @@
   height: 100vh;
   width: 100%;
   background-color: var(--BG-COLOR-MAIN);
+  background-image: url("assets/images/pattern-background-mobile-light.svg");
 }
 
 .heading-container p {
@@ -191,14 +191,15 @@ button {
   border-radius: 10px;
   border: none;
   background-color: purple;
-  color: white;
   font-family: inherit;
   margin-top: 20px;
+  color: white;
 }
 
 button:hover,
 button:focus {
-  background-color: var(--FOUR-BGCOLOR);
+  background-color: rgb(175, 35, 175);
+  cursor: pointer;
 }
 
 /* Question end component styles */
