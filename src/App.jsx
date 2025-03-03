@@ -1,15 +1,19 @@
 import { useState } from "react";
+import useLocalStorage from "use-local-storage";
 
 import QuizMenu from "./components/QuizMenu";
 import QuizQuestionStart from "./components/QuizQuestionStart";
 import QuizQuestionEnd from "./components/QuizQuestionEnd";
 
 function App() {
+  const preference = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
   const [topic, setTopic] = useState("");
   const [next, setNext] = useState(0);
   const [score, setScore] = useState(0);
   const [questionsArray, setQuestionsArray] = useState([]);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useLocalStorage("isDark", preference);
+
 
   function handleTheme() {
     setIsDark(!isDark);

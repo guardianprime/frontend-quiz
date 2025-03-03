@@ -253,6 +253,10 @@ button:focus {
   float: right;
 }
 
+.toggle-img--container {
+  margin-top: 4px;
+}
+
 /* ERROR MESSAGE STYLES */
 .error-message {
   color: red;
