@@ -9,9 +9,15 @@ function App() {
   const [next, setNext] = useState(0);
   const [score, setScore] = useState(0);
   const [questionsArray, setQuestionsArray] = useState([]);
+  const [isDark, setIsDark] = useState(true);
+
+  function handleTheme() {
+    setIsDark(!isDark);
+  }
+
   return (
     <>
-      {!topic && <QuizMenu setTopic={setTopic} />}
+      {!topic && <QuizMenu setTopic={setTopic} isDark={isDark} setIsDark={setIsDark} handleTheme={handleTheme} />}
       {topic && next < 10 ? (
         <QuizQuestionStart
           questionTopic={topic}
@@ -20,6 +26,9 @@ function App() {
           setScore={setScore}
           questionsArray={questionsArray}
           setQuestionsArray={setQuestionsArray}
+          setIsDark={setIsDark}
+          isDark={isDark}
+          handleTheme={handleTheme}
         />
       ) : topic == "" ? null : (
         <QuizQuestionEnd
@@ -29,6 +38,9 @@ function App() {
           setScore={setScore}
           questionTopic={topic}
           questionArray={questionsArray}
+          setIsDark={setIsDark}
+          isDark={isDark}
+          handleTheme={handleTheme}
         />
       )}
     </>

@@ -16,6 +16,9 @@
   --FAIL-COLOR: #f00;
   --CORRECT-COLOR: #00ff00;
   --PICK-COLOR: #blue;
+  --BG-COLOR-MAIN: #e3e3e3;
+  --LIST-COLOR: #ffffff;
+  color: #213547;
 
   /* img bg colors */
   --ONE-BGCOLOR: #fff1e9;
@@ -31,27 +34,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --BG-COLOR-MAIN: #e3e3e3;
-    --LIST-COLOR: #ffffff;
-    color: #213547;
-    background-color: #ffffff;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --BG-COLOR-MAIN: #0b0b45;
-    --LIST-COLOR: rgb(22, 22, 48);
-    color: #ffffff;
-    background-color: #0b0b45;
-  }
+[data-theme= "dark"] {
+  --BG-COLOR-MAIN: #0b0b45;
+  --LIST-COLOR: rgb(22, 22, 48);
+  color: #ffffff;
+  background-color: #0b0b45;
+  
 }
 
 /* UTILITIES CLASS*/
 .center {
   text-align: center;
+}
+
+.margin-top {
+  margin-top: 50px;
 }
 
 /* CLASS STYLES FOR FAIL CORRECT AND PICK USEDFOR THE LISTS */
@@ -249,9 +246,11 @@ button:focus {
 }
 
 .modeToggle-container {
-  width: 60px;
-  height: 30px;
+  width: 130px;
+  height: 40px;
   display: flex;
+  align-items: center;
+  float: right;
 }
 
 /* ERROR MESSAGE STYLES */
