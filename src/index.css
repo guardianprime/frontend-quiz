@@ -28,6 +28,10 @@
 
   --BTN-COLOR: purple;
 
+  /* BG IMAGES */
+
+  --MOBILE-BG-IMG: url("assets/images/pattern-background-mobile-light.svg");
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -39,6 +43,7 @@
   --LIST-COLOR: rgb(22, 22, 48);
   color: #ffffff;
   background-color: #0b0b45;
+  --MOBILE-BG-IMG: url("assets/images/pattern-background-mobile-dark.svg");
 }
 
 /* UTILITIES CLASS*/
@@ -70,7 +75,7 @@
   height: 100vh;
   width: 100%;
   background-color: var(--BG-COLOR-MAIN);
-  background-image: url("assets/images/pattern-background-mobile-light.svg");
+  background-image: var(--MOBILE-BG-IMG);
 }
 
 .heading-container p {
