@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import ModeToggle from "./ModeToggle";
 
-function QuizMenu({ setTopic, isDark, setIsDark, handleTheme }) {
+function QuizMenu({ setTopic, isDark, handleTheme }) {
 
   function handleTopic(topic) {
     setTopic(topic);
@@ -9,7 +9,7 @@ function QuizMenu({ setTopic, isDark, setIsDark, handleTheme }) {
 
   return (
     <div className="container" data-theme={isDark ? "dark" : "light"}>
-      <ModeToggle setIsDark={setIsDark} isDark={isDark} handleTheme={handleTheme} />
+      <ModeToggle isDark={isDark} handleTheme={handleTheme} />
       <div className="wrapper margin-top">
         <div className="heading-container">
           <h2>Welcome to the </h2>

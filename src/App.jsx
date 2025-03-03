@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-      {!topic && <QuizMenu setTopic={setTopic} isDark={isDark} setIsDark={setIsDark} handleTheme={handleTheme} />}
+      {!topic && <QuizMenu setTopic={setTopic} isDark={isDark} handleTheme={handleTheme} />}
       {topic && next < 10 ? (
         <QuizQuestionStart
           questionTopic={topic}
@@ -30,7 +30,6 @@ function App() {
           setScore={setScore}
           questionsArray={questionsArray}
           setQuestionsArray={setQuestionsArray}
-          setIsDark={setIsDark}
           isDark={isDark}
           handleTheme={handleTheme}
         />
@@ -42,7 +41,6 @@ function App() {
           setScore={setScore}
           questionTopic={topic}
           questionArray={questionsArray}
-          setIsDark={setIsDark}
           isDark={isDark}
           handleTheme={handleTheme}
         />

@@ -5,7 +5,7 @@ import LoaderSpinner from "./LoaderSpinner";
 
 const imageClass = { HTML: "one", CSS: "two", Javascript: "three", Accessibility: "four" };
 
-function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsArray, setQuestionsArray }) {
+function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsArray, setQuestionsArray, isDark, handleTheme }) {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [answer, setAnswer] = useState("");
@@ -80,7 +80,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
 
     const letters = ["A", "B", "C", "D"];
     return (
-      <div className="container">
+      <div className="container" data-theme={isDark? "dark": "light"}>
         <div className="header-subcontainer">
           <div className="image-container__flex">
             <div className={`main-image--container ${imageClass[questionTopic]}`}>
@@ -88,7 +88,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
             </div>
             <span>{questionTopic}</span>
           </div>
-          <ModeToggle />
+          <ModeToggle isDark={isDark} handleTheme={handleTheme} />
         </div>
         <div className="wrapper">
           <div className="question-container">

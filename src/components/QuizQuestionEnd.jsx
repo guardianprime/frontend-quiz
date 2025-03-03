@@ -3,7 +3,7 @@ import ModeToggle from "./ModeToggle";
 
 const imageClass = { HTML: "one", CSS: "two", Javascript: "three", Acessibility: "four" };
 
-function QuizQuestionEnd({ setNext, setTopic, score, setScore, questionTopic, questionArray }) {
+function QuizQuestionEnd({ setNext, setTopic, score, setScore, questionTopic, questionArray, isDark, handleTheme }) {
 
   function handleReset() {
     setNext(0);
@@ -12,7 +12,7 @@ function QuizQuestionEnd({ setNext, setTopic, score, setScore, questionTopic, qu
   }
 
   return (
-    <div className="container">
+    <div className="container" data-theme={isDark ? "dark" : "light"}>
       <div className="header-subcontainer">
         <div className="image-container__flex">
           <div className={`main-image--container ${imageClass[questionTopic]}`}>
@@ -22,7 +22,7 @@ function QuizQuestionEnd({ setNext, setTopic, score, setScore, questionTopic, qu
           </div>
           <span>{questionTopic}</span>
         </div>
-        <ModeToggle />
+        <ModeToggle isDark={isDark} handleTheme={handleTheme} />
       </div>
       <div className="heading-container">
         <h2 className="center">Quiz completed</h2>
