@@ -14,7 +14,7 @@ function QuizMenu({ setTopic, isDark, handleTheme }) {
         <div className="heading-container">
           <h2>Welcome to the </h2>
           <h1>Frontend Quiz!</h1>
-          <p>Pick a subject to get started.</p>
+          <p className="italic">Pick a subject to get started.</p>
         </div>
         <ul>
           <li onClick={() => handleTopic("HTML")}>

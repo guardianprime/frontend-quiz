@@ -3,6 +3,11 @@
   src: url(/assets/fonts/Rubik-VariableFont_wght.ttf);
 }
 
+@font-face {
+  font-family: mySecondFont;
+  src: url(/assets/fonts/Rubik-italic-VariableFont_wght.ttf);
+}
+
 /* test  */
 
 * {
@@ -55,6 +60,10 @@
 /* UTILITIES CLASS*/
 .center {
   text-align: center;
+}
+
+.italic {
+  font-family: mySecondFont, georgia;
 }
 
 .margin-top {
