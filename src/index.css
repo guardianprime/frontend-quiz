@@ -3,7 +3,7 @@
   src: url(/assets/fonts/Rubik-VariableFont_wght.ttf);
 }
 
-/* test */
+/* test  */
 
 * {
   padding: 0;
@@ -33,6 +33,8 @@
   /* BG IMAGES */
 
   --MOBILE-BG-IMG: url("assets/images/pattern-background-mobile-light.svg");
+  --TABLET-BG-IMG: url("assets/images/pattern-background-tablet-light.svg");
+  --LAPTOP-BG-IMG: url("assets/images/pattern-background-desktop-light.svg");
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -46,6 +48,8 @@
   color: #ffffff;
   background-color: #0b0b45;
   --MOBILE-BG-IMG: url("assets/images/pattern-background-mobile-dark.svg");
+  --TABLET-BG-IMG: url("assets/images/pattern-background-tablet-dark.svg");
+  --LAPTOP-BG-IMG: url("assets/images/pattern-background-desktop-dark.svg");
 }
 
 /* UTILITIES CLASS*/
@@ -78,6 +82,7 @@
   width: 100%;
   background-color: var(--BG-COLOR-MAIN);
   background-image: var(--MOBILE-BG-IMG);
+  background-size: cover;
 }
 
 .heading-container p {
@@ -356,6 +361,10 @@ button:focus {
 /* TABLET STYLES */
 
 @media screen and (min-width: 450px) {
+  .container {
+    background-image: var(--TABLET-BG-IMG);
+  }
+
   ul li {
     height: 22%;
     padding: 20px;
@@ -387,19 +396,16 @@ button:focus {
 
 /* LAPTOP STYLES */
 @media screen and (min-width: 1024px) {
+  .container {
+    background-image: var(--LAPTOP-BG-IMG);
+  }
+
   .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-inline: 100px;
     height: 80vh;
-  }
-
-  .heading-container {
-    width: 30%;
-    height: 400px;
-    padding-top: 100px;
-    padding-inline: 20px;
   }
 
   h2 {
@@ -450,7 +456,9 @@ button:focus {
 
   .heading-container {
     width: 40%;
-    height: 100%;
+    height: 70%;
+    padding-top: 100px;
+    padding-inline: 20px;
   }
 
   .score-wrapper {
