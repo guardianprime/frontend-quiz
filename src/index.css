@@ -8,8 +8,6 @@
   src: url(/assets/fonts/Rubik-italic-VariableFont_wght.ttf);
 }
 
-/* test  */
-
 * {
   padding: 0;
   margin: 0;
@@ -37,9 +35,9 @@
 
   /* BG IMAGES */
 
-  --MOBILE-BG-IMG: url("assets/images/pattern-background-mobile-light.svg");
-  --TABLET-BG-IMG: url("assets/images/pattern-background-tablet-light.svg");
-  --LAPTOP-BG-IMG: url("assets/images/pattern-background-desktop-light.svg");
+  --MOBILE-BG-IMG: url("/assets/images/pattern-background-mobile-light.svg");
+  --TABLET-BG-IMG: url("/assets/images/pattern-background-tablet-light.svg");
+  --LAPTOP-BG-IMG: url("/assets/images/pattern-background-desktop-light.svg");
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -52,9 +50,9 @@
   --LIST-COLOR: rgb(22, 22, 48);
   color: #ffffff;
   background-color: #0b0b45;
-  --MOBILE-BG-IMG: url("assets/images/pattern-background-mobile-dark.svg");
-  --TABLET-BG-IMG: url("assets/images/pattern-background-tablet-dark.svg");
-  --LAPTOP-BG-IMG: url("assets/images/pattern-background-desktop-dark.svg");
+  --MOBILE-BG-IMG: url("/assets/images/pattern-background-mobile-dark.svg");
+  --TABLET-BG-IMG: url("/assets/images/pattern-background-tablet-dark.svg");
+  --LAPTOP-BG-IMG: url("/assets/images/pattern-background-desktop-dark.svg");
 }
 
 /* UTILITIES CLASS*/
