@@ -87,7 +87,7 @@
 /* GENERAL STYLES */
 .container {
   padding: 20px;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
   background-color: var(--BG-COLOR-MAIN);
   background-image: var(--MOBILE-BG-IMG);
@@ -151,7 +151,7 @@ li .option-lang,
 }
 
 .letter-container {
-  width: 50px;
+  width: clamp(50px, 10vw, 70px);
   height: 50px;
   border-radius: 8px;
   display: flex;
