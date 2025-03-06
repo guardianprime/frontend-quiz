@@ -1,3 +1,5 @@
+/* eslint-disable react/prop-types */
+
 import { useEffect, useState, useRef } from "react";
 import LoadingBar from "./LoadingBar";
 import ModeToggle from "./ModeToggle";
@@ -118,7 +120,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
                   <li
                     key={option}
                     onClick={handleSelectingOption}
-                    className={done ? (option === answer ? "correct" : "fail") : "question-ul-li"}
+                    className={done ? (option === answer ? "correct" : "fail") : ""}
                     tabIndex="0"
                   >
                     <div className="li__div-first">
