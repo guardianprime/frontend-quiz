@@ -71,6 +71,21 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
     }
   }, [next, questionsArray]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        event.target.click();
+      }
+    };
+
+    const questionUl = document.getElementById('question-ul');
+    questionUl.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      questionUl.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const renderContent = () => {
     if (isLoading) return <LoaderSpinner isDark={isDark}/>;
     if (error) return <div>{error}</div>;
@@ -104,6 +119,7 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
                     key={option}
                     onClick={handleSelectingOption}
                     className={done ? (option === answer ? "correct" : "fail") : "question-ul-li"}
+                    tabIndex="0"
                   >
                     <div className="li__div-first">
                       <div className="letter-container"><span>{letters[index]}</span></div>
