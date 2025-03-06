@@ -32,6 +32,7 @@
   --FOUR-BGCOLOR: #f6e7ff;
 
   --BTN-COLOR: #a729f5;
+  --BTN-BG-HOVER: #8c1cf5;
 
   /* BG IMAGES */
 
@@ -217,7 +218,7 @@ button {
 
 button:hover,
 button:focus {
-  background-color: rgb(175, 35, 175);
+  background-color: var(--BTN-BG-HOVER);
   cursor: pointer;
 }
 
@@ -468,6 +469,19 @@ button:focus {
     padding-inline: 20px;
   }
 
+  .quizend-container {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin-inline: auto;
+    height: 100%;
+  }
+
+  .quizend-container .score-wrapper {
+    width: clamp(400px, 50%, 500px);
+    height: 500px;
+  }
+
   .score-wrapper {
     width: 50%;
     height: 100%;
@@ -475,6 +489,10 @@ button:focus {
 
   .score-container {
     height: 70%;
+  }
+
+  .score {
+    font-size: 6rem;
   }
 
   .main-image--container {
