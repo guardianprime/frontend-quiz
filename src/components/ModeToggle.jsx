@@ -17,10 +17,10 @@ function ModeToggle({ handleTheme, isDark }) {
                 uncheckedIcon={false}
                 checkedIcon={false}
                 className="handle"
-                onColor="#ffffff"
-                onHandleColor="#020202"
+                onColor="#a729f5"
+                onHandleColor="#ffffff"
                 offHandleColor="#ffffff"
-                offColor="#020202"
+                offColor="#a729f5"
                 handleDiameter={28}
                 height={30}
                 width={55}

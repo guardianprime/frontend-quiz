@@ -21,7 +21,7 @@
   --FAIL-COLOR: #ee5454;
   --CORRECT-COLOR: #26d782;
   --PICK-COLOR: #a729f5;
-  --BG-COLOR-MAIN: #e3e3e3;
+  --BG-COLOR-MAIN: #f4f6fa;
   --LIST-COLOR: #ffffff;
   color: #213547;
 
@@ -31,7 +31,7 @@
   --THREE-BGCOLOR: #ebf0ff;
   --FOUR-BGCOLOR: #f6e7ff;
 
-  --BTN-COLOR: purple;
+  --BTN-COLOR: #a729f5;
 
   /* BG IMAGES */
 
@@ -46,8 +46,8 @@
 }
 
 [data-theme="dark"] {
-  --BG-COLOR-MAIN: #0b0b45;
-  --LIST-COLOR: rgb(22, 22, 48);
+  --BG-COLOR-MAIN: #313e51;
+  --LIST-COLOR: #3b4d66;
   color: #ffffff;
   background-color: #0b0b45;
   --MOBILE-BG-IMG: url("/assets/images/pattern-background-mobile-dark.svg");
@@ -209,7 +209,7 @@ button {
   padding: 15px;
   border-radius: 10px;
   border: none;
-  background-color: purple;
+  background-color: var(--BTN-COLOR);
   font-family: inherit;
   margin-top: 20px;
   color: white;
