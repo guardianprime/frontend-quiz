@@ -18,9 +18,9 @@
   font-family: myFirstFont, Inter;
   line-height: 1.5;
 
-  --FAIL-COLOR: #f00;
-  --CORRECT-COLOR: #177d17;
-  --PICK-COLOR: blue;
+  --FAIL-COLOR: #ee5454;
+  --CORRECT-COLOR: #26d782;
+  --PICK-COLOR: #a729f5;
   --BG-COLOR-MAIN: #e3e3e3;
   --LIST-COLOR: #ffffff;
   color: #213547;

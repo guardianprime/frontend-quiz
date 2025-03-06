@@ -46,12 +46,12 @@ function QuizQuestionStart({ questionTopic, next, setNext, setScore, questionsAr
       try {
         setIsLoading(true);
         setError("");
-        const res = await fetch(`http://localhost:9000/quizzes`);
+        const res = await fetch(`data.json`);
 
         if (!res.ok) throw new Error("couldn't fetch the questions");
         const data = await res.json();
         const topicObject = { HTML: 0, CSS: 1, Javascript: 2, Accessibility: 3 };
-        const clean = data[topicObject[questionTopic]]; // this is the array of questions for the topic
+        const clean = data.quizzes[topicObject[questionTopic]]; // this is the array of questions for the topic
         setQuestionsArray(clean);
       } catch (err) {
         setError(err.message);
